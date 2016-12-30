@@ -1,6 +1,7 @@
 # _*_ coding:utf-8 _*_
 
 from Tkinter import *
+
 import tkMessageBox
 import urllib2,urllib
 import time
@@ -27,15 +28,22 @@ def music():
     print m_list
 
 def play():
+    label.pack(fill=Y,expand=1)
     sy=listbox.curselection()[0]
-    # print m_list[int(sy)]
-    # print repr(listbox.selection_get())
-    # m_name=listbox.selection_get().encode('utf-8')
+    print m_list[int(sy)]
+    # print ','.join(listbox.selection_get().split('  '))
+    s_name=listbox.selection_get().split('  ')[0].encode('utf-8')
+    sr_name=listbox.selection_get().split('  ')[1].encode('utf-8')
+    label.config(text = '正在缓冲 '+sr_name+' 的 '+s_name+' ...', font = 'Helvetica -12')
+    m_name=listbox.selection_get().encode('utf-8')
     m_name=time.strftime('%Y%m%d%H%M%S')+'.mp3'
     urllib.urlretrieve(m_list[int(sy)],m_name)
     mp3=mp3play.load(m_name)
+    label.config(text = '缓冲完成', font = 'Helvetica -12')
     mp3.play()
-    for i in range(1,mp3.seconds()):
+    scale.config( from_=0, to=mp3.seconds(), orient=HORIZONTAL, command=resize,troughcolor='gray50')
+
+    for i in range(0,mp3.seconds()):
         print i
         time.sleep(1)
     # time.sleep(mp3.seconds())
@@ -45,14 +53,24 @@ def th(event):
     t=threading.Thread(target=play)
     t.start()
 
+def resize(ev=None):
+    print scale.get()
+    # label.config(font='Helvetica -%d bold' % scale.get())
+
 root = Tk()
 root.title("在线听歌")
 root.geometry('+500+250') #窗口大小,窗口位置
 entry=Entry(root)
 entry.pack()
 Button(root,text='搜索歌曲',command=music).pack()
+
 var =StringVar()
 listbox=Listbox(root,width=50,listvariable=var)
 listbox.bind('<Double-Button-1>',th)
 listbox.pack()
+
+label = Label(root, text = '正在缓冲...', font = 'Helvetica -12')
+scale = Scale(root, from_=0, to=40, orient=HORIZONTAL, command=resize,troughcolor='gray50')
+scale.pack(fill=X, expand=1)
+
 mainloop()

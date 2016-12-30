@@ -1,0 +1,18 @@
+{
+    "conf_path": "Distribute_police_conf.json",
+    "log_path": "/var/log/tomcat_migu/20160921/PresentationUploadInfo-*-000000000000.log",
+    "frequency_rule": "day",
+    "analysismodel_log":"analysis.log",
+    "script_log":"main.log"
+}
+
+{
+    "conf_path": "Distribute_police_conf.json",
+    "log_path": "C:\\var\\log\\tomcat_migu\\20160921\\PresentationUploadInfo-*-000000000000.log",
+    "frequency_rule": "day",
+    "analysismodel_log":"analysis.log",
+    "script_log":"main.log"
+}
+
+        if not os.path.exists(os.path.dirname(zipfilename)):
+            os.makedirs(os.path.dirname(zipfilename))

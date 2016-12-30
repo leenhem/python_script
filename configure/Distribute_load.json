@@ -1,0 +1,8 @@
+{
+    "conf_path": "/home/ziranwei_report_distribute/configure/Distribute_police_conf.json",
+    "log_path": "/var/log/monitor/00000000/HbUploadInfo-*-000000000000.log",
+    "frequency_rule": "minute",
+    "sum_log": "/home/ziranwei_report_distribute/script/log/SUMLOG.log",
+    "analysismodel_log":"/home/ziranwei_report_distribute/script/analysis.log",
+    "script_log":"/home/ziranwei_report_distribute/script/main.log"
+}

@@ -1,0 +1,30 @@
+[
+    {
+        "probeid": "1047",
+        "node_alias":"node1",
+        "anamodel_flog": "/home/ziranwei_report_distribute/script/anamodel.log",
+        "zipmodel_fpath": "/home/ziranwei_report_distribute/script/zip/1047/",
+        "zipmodel_flog": "/home/ziranwei_report_distribute/script/1047_2_zip.log",
+        "dismodel_posturi": "http://192.168.39.109:8080/v3/uploadfile",
+        "dismodel_flog": "/home/ziranwei_report_distribute/script/distrbute_1047.log"
+    },
+    {
+        "probeid": "1048",
+        "node_alias":"node1",
+        "anamodel_flog": "/home/ziranwei_report_distribute/script/anamodel.log",
+        "zipmodel_fpath": "/home/ziranwei_report_distribute/script/zip/1048/",
+        "zipmodel_flog": "/home/ziranwei_report_distribute/script/1048_2_zip.log",
+        "dismodel_posturi": "http://192.168.39.109:8080/v3/uploadfile",
+        "dismodel_flog": "/home/ziranwei_report_distribute/script/distrbute_1048.log"
+    },
+    {
+        "probeid": "1049",
+        "node_alias":"node1",
+        "logmodel_flog": "/home/ziranwei_report_distribute/script/anamodel.log",
+        "zipmodel_fpath": "/home/ziranwei_report_distribute/script/zip/1049/",
+        "zipmodel_flog": "/home/ziranwei_report_distribute/script/1049_2_zip.log",
+        "dismodel_posturi": "http://192.168.39.109:8080/v3/uploadfile",
+        "dismodel_flog": "/home/ziranwei_report_distribute/script/distrbute_1049.log"
+    }
+
+]

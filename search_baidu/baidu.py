@@ -10,7 +10,6 @@ urls=(
     '/key','Key',
 )
 
-
 render = render_jinja(
     'templates'
     # 'static'
@@ -36,13 +35,11 @@ def getkey(wd):
         'User-Agent':'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36'
     }
     req=urllib2.Request(url,headers=add_headers)
-    html=urllib2.urlopen(req).read()
-    reg=re.compile(r'window.baidu.sug\(\{q:"cc",p:false,s:\[(.*?)\]\}\);')
+    html=urllib2.urlopen(req).read().decode('gbk').encode('utf-8')
+    reg=re.compile(r'window.baidu.sug\({q:".*?",p:false,s:(.*?)}\);')
     html=reg.findall(html)
-    print html
-    # print json.loads(html[0])
-    # for i in html[0]:
-    #     print i
+    return html[0]
+
 
 class Index():
     def GET(self):
@@ -55,17 +52,17 @@ class So:
         text=getdata(i.wd)
         return text
 
+
 class Key:
     def GET(self):
         i=web.input()
         key=i.wd
-        getkey(key)
+        keylist=getkey(key)
         print 'key:',key
-        # return key
+        return keylist
 
 if __name__ == '__main__':
     web.application(urls,globals()).run()
 
 
 #ajxs 异步
-

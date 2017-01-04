@@ -12,11 +12,11 @@ for city_index in citys_tmp:
     if city_index:
         citys_dict[city_index.split("|")[1]]=city_index.split('|')[2]
 
-start_time='2016-12-30'
+start_time='2017-1-26'
 start_station=citys_dict['北京']
-end_station=citys_dict['三亚']
+end_station=citys_dict['衡水']
 
-
+time.strftime("%Y%m%d %H%M%S")
 def getHtml():
     url='https://kyfw.12306.cn/otn/leftTicket/queryZ?leftTicketDTO.train_date=%s&leftTicketDTO.from_station=%s&leftTicketDTO.to_station=%s&purpose_codes=ADULT' %(start_time,start_station,end_station)
     html=urllib2.urlopen(url).read()
